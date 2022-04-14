@@ -1,10 +1,29 @@
 package com.project.exam.domain;
 
+import javax.persistence.*;
 
+
+
+
+
+
+
+@Entity
+@Table(name = "user")
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User {
+	@Id
+	@Column(name = "id_user")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
 	private String username;
+	
 	private String password;
+	
+	@Column(name ="first_name")
 	private String firstname;
+	@Column(name ="last_name")
 	private String lastname;
 	
 	public User() {
@@ -20,6 +39,14 @@ public class User {
 
 	public String getUsername() {
 		return username;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setUsername(String username) {
@@ -80,6 +107,13 @@ public class User {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
+				+ ", lastname=" + lastname + "]";
+	}
+
 	public User clone() {
 		return new User(username, null, firstname, lastname);
 	}

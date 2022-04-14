@@ -2,8 +2,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored = "false" %>
 <!DOCTYPE html>
-<html lang="<%=session.getAttribute("lang")%>">
+<html>
 <head>
     <jsp:include page="include/head.jsp"/>
     <title>Login</title>
@@ -33,7 +34,7 @@
                         </div>
                     </div>
                     <div class="row">
-                       
+                       ${error_message }
                     </div>
                     <div class="row">
                         <div class="col s12 center">

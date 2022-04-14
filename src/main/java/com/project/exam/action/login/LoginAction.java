@@ -1,5 +1,6 @@
 package com.project.exam.action.login;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,10 +18,14 @@ public class LoginAction extends AbstractAction {
 	@Override
 	public String executeRequest(HttpServletRequest request, HttpServletResponse response) {
 		User user = login(request);
+		List<User>	users =(List<User>) request.getServletContext().getAttribute("ListOfLoggedInUsers");
 		
-		if (user!=null) {
-			//user.setPassword(null);
+		if (user!=null && !users.contains(user)) {
 			User loggedUser = user.clone();
+
+
+			users.add(user);
+			
 			request.getSession(true).setAttribute("login-user", loggedUser);
 			return AppConstants.PAGE_HOME;
 		} else {
@@ -38,8 +43,9 @@ public class LoginAction extends AbstractAction {
 		user.setUsername(username);
 		user.setPassword(password);
 		List<User> users = UserStorage.getInstance().getUsers();
-		
+		System.out.println(users.size());
 		for (User current : users) {
+			System.out.println(current.toString());
 			if (current.equals(user)) {
 				return current;
 			}

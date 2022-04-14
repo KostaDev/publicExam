@@ -3,7 +3,11 @@ package com.project.exam.storage;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import com.project.exam.domain.User;
+import com.project.exam.persistance.MyEntityManagerFactory;
+
 
 
 
@@ -12,15 +16,19 @@ public class UserStorage {
 	private static UserStorage instance;
 	
 	public UserStorage() {
-		users = new ArrayList() {
-			{
-				add(new User("user1", "user1", "user 1", "user 1"));
-				add(new User("user2", "user2", "user 2", "user 2"));
-				add(new User("user3", "user3", "user 3", "user 3"));
-			}
-		};
+		users = loadUsers();
+		System.out.println("++++++LOADED USERS++++++");
 	}
 	
+	private List<User> loadUsers() {
+		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory()
+				.createEntityManager();
+		List<User> users = em.createNamedQuery("User.findAll",User.class)
+				.getResultList();
+		em.close();
+		return users;
+	}
+
 	public static UserStorage getInstance() {
 		if (instance == null) instance = new UserStorage();
 		return instance;
