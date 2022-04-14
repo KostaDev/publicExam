@@ -36,7 +36,6 @@ public class FrontController extends HttpServlet {
 		String page = applicationController.processRequest(request,response);
 		request.getRequestDispatcher(page).forward(request, response);
 		
-		
 	}
 
 	/**

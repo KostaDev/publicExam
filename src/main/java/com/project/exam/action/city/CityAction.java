@@ -1,10 +1,11 @@
-package com.project.exam.action;
+package com.project.exam.action.city;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.project.exam.action.AbstractAction;
 import com.project.exam.constants.AppConstants;
 import com.project.exam.domain.City;
 import com.project.exam.storage.CityStorage;
@@ -14,6 +15,7 @@ public class CityAction extends AbstractAction {
 	@Override
 	public String executeRequest(HttpServletRequest request, HttpServletResponse response) {
 		List<City> cityList = CityStorage.getInstance().getCities();
+		System.out.println("City list length: "+cityList.size());
 		request.setAttribute("cities", cityList);
 		return AppConstants.PAGE_CITY;
 	}

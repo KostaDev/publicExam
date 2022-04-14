@@ -17,9 +17,9 @@ public class MyEntityManagerFactory {
 		}
 		return instance.getEmf();
 	}
+	
 
-	private EntityManagerFactory getEmf() {
-		
+	private EntityManagerFactory getEmf() {		
 		return emf;
 	}
 	public static void closeEntityManagerFactory() {

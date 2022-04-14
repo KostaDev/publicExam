@@ -33,7 +33,8 @@
                             <label for="password">Password</label>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row red accent-2 text-white text-center">
+                    
                        ${error_message }
                     </div>
                     <div class="row">

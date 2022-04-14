@@ -25,12 +25,28 @@ public class CityStorage {
  		return listCities;
 	}
 	public List<City> getCities() {
-		return cities;
+		return loadCities();
 	}
 	public static CityStorage getInstance() {
 		if (instance == null) {
 			instance = new CityStorage();
 		}
 		return instance;
+	}
+
+	public void add(City city) {
+		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory()
+				.createEntityManager();
+		em.getTransaction().begin();
+		
+		City existingCity = em.find(City.class, city.getZipCode());
+		if (existingCity==null) {
+			em.persist(city);
+			System.out.println("City inserted");
+		} else {
+			existingCity.setName(city.getName());
+		}
+		em.getTransaction().commit();
+		em.close();
 	}
 }
