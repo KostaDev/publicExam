@@ -1,17 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
+<%@ page import="com.project.exam.domain.User"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ page isELIgnored = "false" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <jsp:include page="/include/head.jsp"/>
 <title>home</title>
 </head>
+
 <body>
-<h1>test</h1>
-logged user: ${login-user}
+<div>
+</div>
+${sessionScope.login-user}
+<br>
+${sessionScope.login-user.username}
+<br>
+${login-user}
+<br>
+${login-user.username}
+<h3>Logged user: ${session.scopelogin-user} </h3> 
+<a href="/exam/application/city"> City page
+</a>
+<a href="/exam/application/manufacturer"> manufacturer page
+</a>
 
 </body>
 </html>
