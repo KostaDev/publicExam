@@ -12,4 +12,6 @@ public interface AppConstants {
 	
 	public static final String PATH_CITY_ADD="/city/add";
 	
+	public static final String PATH_CITY_DELETE="/city/delete";
+	
 }

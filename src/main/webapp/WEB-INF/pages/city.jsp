@@ -22,8 +22,11 @@
 					autofocus="autofocus"> <label for="city_name">City
 					name:</label>
 			</div>
-			<div class="row accent-2 text-white text-center">
-				${error_message }</div>
+			<div>
+				<jsp:include page="/include/errorList.jsp"></jsp:include>
+				<jsp:include page="/include/successList.jsp"></jsp:include>
+			</div>
+			
 			<div class="row">
 				<div class="col s12 center">
 					<button class="btn theme-foreground" type="submit" name="action">
@@ -58,8 +61,8 @@
 									</button>
 								</form>
 								<form method="post"
-									action="<c:url value="/exam/application/city/delete" />">
-									<input name="order_id" type="hidden" value="${city.zipCode}">
+									action="/exam/application/city/delete" >
+									<input name="zip_code" type="hidden" value="${city.zipCode}">
 									<button
 										class="btn-flat red theme-foreground-light-text tooltipped"
 										type="submit" data-tooltip="Delete">

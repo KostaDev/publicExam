@@ -3,6 +3,7 @@ package com.project.exam.action.factory;
 import com.project.exam.action.AbstractAction;
 import com.project.exam.action.city.AddCityAction;
 import com.project.exam.action.city.CityAction;
+import com.project.exam.action.city.DeleteCityAction;
 import com.project.exam.action.login.LoginAction;
 import com.project.exam.constants.AppConstants;
 
@@ -22,6 +23,9 @@ public class ActionFactory {
 			break;
 		case AppConstants.PATH_CITY_ADD:
 			action = new AddCityAction();
+			break;
+		case AppConstants.PATH_CITY_DELETE:
+			action = new DeleteCityAction();
 			break;
 		default:
 			break;

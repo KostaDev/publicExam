@@ -28,7 +28,7 @@ public class LoginAction extends AbstractAction {
 			request.getSession(true).setAttribute("login-user", loggedUser);
 			return AppConstants.PAGE_HOME;
 		} else {
-			request.setAttribute("error_message", "error: user does not exist");
+			request.setAttribute("errors", new String[]{"Invalid username or password"});
 			return AppConstants.PAGE_LOGIN;
 		}
 		

@@ -49,4 +49,18 @@ public class CityStorage {
 		em.getTransaction().commit();
 		em.close();
 	}
+
+	public Boolean delete(Long idToRemove) {
+		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory()
+				.createEntityManager();
+		em.getTransaction().begin();
+		City cityToRemove = em.find(City.class,idToRemove);
+		if(cityToRemove == null) {
+			em.getTransaction().commit();
+			return false;
+		}
+		em.remove(cityToRemove);
+		em.getTransaction().commit();
+		return true;
+	}
 }

@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <i class="material-icons theme-white-text prefix">account_circle</i>
-                            <input id="username" name="username" type="text" autofocus="autofocus">
+                            <input id="username" name="username" type="text" autofocus="autofocus" placeholder="Username">
                             <label for="username">Username</label>
                         </div>
                     </div>
@@ -33,9 +33,9 @@
                             <label for="password">Password</label>
                         </div>
                     </div>
-                    <div class="row red accent-2 text-white text-center">
+                    <div >
                     
-                       ${error_message }
+                    	<jsp:include page="include/errorList.jsp"></jsp:include>  
                     </div>
                     <div class="row">
                         <div class="col s12 center">
