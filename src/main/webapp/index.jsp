@@ -13,7 +13,7 @@
 
 <main class="container">
     <div class="row">
-        <form class="col s12" method="post" action="<c:url value="/login"/>">
+        <form class="col s12" method="post" action="<c:url value="/application/login"/>">
             <h2 class="center">Employee Login</h2>
             <div class="row">
                 <div class="col s12 m12 l3"></div>
