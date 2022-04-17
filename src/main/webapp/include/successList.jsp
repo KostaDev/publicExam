@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored = "false" %>
 <c:set var="successes" value="${requestScope.successes}"/>
 <ul class="collection">
     <c:forEach var="success" items="${successes}">

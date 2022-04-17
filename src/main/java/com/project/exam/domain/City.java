@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name = "city")
 @NamedQuery(name="City.findAll", query="SELECT c FROM City c")
 public class City {
 	@Id

@@ -7,7 +7,7 @@
 <head>
 <jsp:include page="/include/head.jsp"/>
 <title>home</title>
-<c:set var="loggedUser" value="${sessionScope.login-user}"/>
+<c:set var="loggedUser" value="${requestScope.login-user}"/>
 </head>
 
 <body>
@@ -15,6 +15,7 @@
 <h3>Logged user: ${loggedUser} </h3> 
 <a href="/exam/application/city"> City page
 </a>
+<br>
 <a href="/exam/application/manufacturer"> manufacturer page
 </a>
 

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ page isELIgnored="false"%>
 
 <!DOCTYPE html>
@@ -9,8 +10,9 @@
 <title>City</title>
 </head>
 <body>
+<main class="container text-center">
 	<h2>City page</h2>
-	<div class="row">
+	<div class="container justify-content-center">
 		<form action="/exam/application/city/add">
 			<div class="row input-field col s12 m12 l12">
 				<input id="zip_code" name="zip_code" type="number"
@@ -76,5 +78,6 @@
 			</table>
 		</div>
 	</div>
+</main>
 </body>
 </html>

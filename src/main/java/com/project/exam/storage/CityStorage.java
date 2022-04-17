@@ -56,7 +56,7 @@ public class CityStorage {
 		em.getTransaction().begin();
 		City cityToRemove = em.find(City.class,idToRemove);
 		if(cityToRemove == null) {
-			em.getTransaction().commit();
+			
 			return false;
 		}
 		em.remove(cityToRemove);
