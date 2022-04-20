@@ -38,7 +38,7 @@ public class LoginAction extends AbstractAction {
 			}
 			users.add(user);
 			
-			session.setAttribute("login-user", loggedUser.getUsername());
+			session.setAttribute("login-user", loggedUser);
 			return AppConstants.PAGE_HOME;
 		} else {
 			request.setAttribute("errors", new String[]{"Invalid username or password"});

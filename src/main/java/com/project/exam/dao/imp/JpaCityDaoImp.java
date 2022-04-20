@@ -13,6 +13,10 @@ public class JpaCityDaoImp implements CityDao {
 		this.em = em;
 	}
 	@Override
+	public City findById(Long zipCode) {		
+		return em.find(City.class, zipCode);
+	}
+	@Override
 	public List<City> findAll() {
 		return em.createNamedQuery("City.findAll", City.class).getResultList();
 	}

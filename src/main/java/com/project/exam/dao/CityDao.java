@@ -10,4 +10,6 @@ public interface CityDao {
 	void insertCity(City city);
 
 	Boolean remove(Long idToRemove);
+
+	City findById(Long zipCode);
 }

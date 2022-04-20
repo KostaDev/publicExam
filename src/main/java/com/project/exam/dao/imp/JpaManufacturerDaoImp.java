@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import com.project.exam.dao.ManufacturerDao;
+import com.project.exam.domain.City;
 import com.project.exam.domain.Manufacturer;
 
 public class JpaManufacturerDaoImp implements ManufacturerDao {
@@ -14,25 +15,19 @@ public class JpaManufacturerDaoImp implements ManufacturerDao {
 		this.em = em;
 	}
 	
-	@Override
-	public Boolean removeCity(Long idToRemove) {
-		List<Manufacturer> manufacturers = findAll();
-		System.out.println(manufacturers);
-		for (Manufacturer manufacturer : manufacturers) {
-			if(manufacturer.getCity()==null) {
-				continue;
-			}
-			if (manufacturer.getCity().getZipCode().equals(idToRemove)) {
-				manufacturer.setCity(null);
-			}
-		}
-				
-		return true;
-	}
+	
 
 	public List<Manufacturer> findAll() {
 		
 		return em.createNamedQuery("Manufacturer.findAll", Manufacturer.class).getResultList();
 	}
+	@Override
+	public void insert(Manufacturer manufacturer) {
+		City c = em.find(City.class, manufacturer.getCity().getZipCode());
+		manufacturer.setCity(c);
+		em.merge(manufacturer);
+		
+	}
+	
 
 }

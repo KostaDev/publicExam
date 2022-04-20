@@ -7,12 +7,16 @@
 <head>
 <jsp:include page="/include/head.jsp"/>
 <title>home</title>
-<c:set var="loggedUser" value="${requestScope.login-user}"/>
+
+<%
+	User logedUser = (User) request.getSession().getAttribute("login-user");
+	pageContext.setAttribute("logedUser", logedUser.getFirstname());
+%>
 </head>
 
 <body>
 
-<h3>Logged user: ${loggedUser} </h3> 
+<h3>Logged user: ${logedUser} </h3> 
 <a href="/exam/application/city"> City page
 </a>
 <br>

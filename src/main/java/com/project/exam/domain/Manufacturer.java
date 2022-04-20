@@ -17,13 +17,21 @@ public class Manufacturer {
 	private Long taxId;
 	
 	private String adress;
-	@ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+	@ManyToOne
 	@JoinColumn(name="city", referencedColumnName = "zip_code")
 	private City city;
 	public Manufacturer() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Manufacturer(Long manufacturerId, Long taxId, String adress, City city) {
+		super();
+		this.manufacturerId = manufacturerId;
+		this.taxId = taxId;
+		this.adress = adress;
+		this.city = city;
+	}
+
 	public Manufacturer(Long taxId, String adress, City city) {
 		super();
 		this.taxId = taxId;
